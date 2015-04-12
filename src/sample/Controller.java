@@ -249,7 +249,7 @@ public class Controller implements Initializable {
         }
         animationWithNodes(nodes);
 
-        index++;
+        index++ ;
         isFillText = false;
 
 
