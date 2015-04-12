@@ -71,7 +71,12 @@
       </VBox>
       <HBox alignment="CENTER_RIGHT" minHeight="-Infinity" prefHeight="62.0" prefWidth="602.0">
          <children>
-            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextOption" prefHeight="43.0" prefWidth="91.0" text="Next">
+            <Button fx:id="nextButton1" mnemonicParsing="false" onAction="#preOption" prefHeight="43.0" prefWidth="91.0" text="上一项">
+               <HBox.margin>
+                  <Insets right="320.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextOption" prefHeight="43.0" prefWidth="91.0" text="下一项">
                <HBox.margin>
                   <Insets right="50.0" />
                </HBox.margin>

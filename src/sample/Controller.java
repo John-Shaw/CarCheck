@@ -56,7 +56,7 @@ public class Controller implements Initializable {
         titleLabel.setText(carMes.getType()[index].getName());
         option1Label.setText(carMes.getType()[index].getOption()[0].getLabel());
         option1Combo.setItems(FXCollections.observableArrayList(carMes.getType()[index].getOption()[0].getOption1(),
-                                                                carMes.getType()[index].getOption()[0].getOption2()));
+                carMes.getType()[index].getOption()[0].getOption2()));
         option1Combo.setPromptText(carMes.getType()[index].getOption()[0].getOption1());
 
         if (carMes.getType()[index].getOption()[1] != null) {
@@ -316,5 +316,19 @@ public class Controller implements Initializable {
 
 
 
+    }
+
+    public void preOption(ActionEvent actionEvent) {
+        index--;
+        if(index < 0){
+            index = 0;
+            Alert mesBox = new Alert(Alert.AlertType.INFORMATION);
+            mesBox.setTitle("ERROR!");
+            mesBox.setContentText("所有选项已完成");
+            mesBox.showAndWait();
+            return;
+        }
+        animationWithNodes(nodes);
+        isFillText = false;
     }
 }
