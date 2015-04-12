@@ -5,17 +5,21 @@ import javafx.animation.*;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -89,6 +93,16 @@ public class Controller implements Initializable {
         TranslateTransition translateTransition =
                 new TranslateTransition(Duration.millis(1000), node);
         translateTransition.setToX(600);
+        translateTransition.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (isFillText == true) {
+
+                } else {
+                    fillText(index);
+                }
+            }
+        });
 
 
         ScaleTransition scaleTransition =
@@ -125,17 +139,7 @@ public class Controller implements Initializable {
 
 
         SequentialTransition queue = new SequentialTransition();
-        queue.getChildren().addAll(parallelTransition,parallelTransitionBack);
-        queue.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if (isFillText == true){
-
-                }else {
-                    fillText(index);
-                }
-            }
-        });
+        queue.getChildren().addAll(parallelTransition, parallelTransitionBack);
         queue.play();
 
     }
@@ -147,7 +151,7 @@ public class Controller implements Initializable {
 
     }
 
-    public void nextOption(ActionEvent actionEvent) {
+    public void nextOption(ActionEvent actionEvent) throws IOException {
 
 //        final Rectangle rect1 = new Rectangle(10, 10, 100, 100);
 //        rect1.setArcHeight(20);
@@ -226,10 +230,21 @@ public class Controller implements Initializable {
 //        parallelTransition.play();
 
         if(index>=endIndex){
-            Alert mesBox = new Alert(Alert.AlertType.INFORMATION);
-            mesBox.setTitle("ERROR!");
-            mesBox.setContentText("所有选项已完成");
-            mesBox.showAndWait();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//            alert.setTitle("Confirmation Dialog");
+//            alert.setHeaderText("Look, a Confirmation Dialog");
+            alert.setContentText("所有信息已录入。是否写入到数据库？");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                Stage st= new Stage(StageStyle.DECORATED);
+                Parent root = FXMLLoader.load(getClass().getResource("progress.fxml"));
+                st.setTitle("Uploading");
+                st.setScene(new Scene(root, 200, 200));
+                st.show();
+            } else {
+                return;
+            }
             return;
         }
         animationWithNodes(nodes);
@@ -287,6 +302,14 @@ public class Controller implements Initializable {
 //
 //        sequentialTransition.play();
     }
+
+
+    private boolean postToMYSqlDB(){
+
+
+        return true;
+    }
+
     public void readDataFromJson(String name){
         String localPath = System.getProperty("user.dir").replaceAll("\\\\", "/");
 

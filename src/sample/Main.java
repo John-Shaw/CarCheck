@@ -14,8 +14,9 @@ public class Main extends Application {
         primaryStage.setTitle("车辆信息检测");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.setMaxWidth(600);
-        primaryStage.setMaxHeight(425);
+        primaryStage.setMaxHeight(440);
         primaryStage.show();
+
     }
 
 
