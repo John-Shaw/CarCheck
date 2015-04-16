@@ -10,7 +10,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -153,82 +156,6 @@ public class Controller implements Initializable {
 
     public void nextOption(ActionEvent actionEvent) throws IOException {
 
-//        final Rectangle rect1 = new Rectangle(10, 10, 100, 100);
-//        rect1.setArcHeight(20);
-//        rect1.setArcWidth(20);
-//        rect1.setFill(Color.RED);
-//
-//        titleView.getChildren().add(rect1);
-//
-//        FadeTransition ft = new FadeTransition(Duration.millis(3000), rect1);
-//        ft.setFromValue(1.0);
-//        ft.setToValue(0.1);
-//        ft.setCycleCount(Timeline.INDEFINITE);
-//        ft.setAutoReverse(true);
-//        ft.play();
-
-//        final Rectangle rectPath = new Rectangle (0, 0, 40, 40);
-//        rectPath.setArcHeight(10);
-//        rectPath.setArcWidth(10);
-//        rectPath.setFill(Color.ORANGE);
-//        titleView.getChildren().add(rectPath);
-//        Path path = new Path();
-//        path.getElements().add(new MoveTo(20,20));
-//        path.getElements().add(new CubicCurveTo(380, 0, 380, 120, 200, 120));
-//        path.getElements().add(new CubicCurveTo(0, 120, 0, 240, 380, 240));
-//        PathTransition pathTransition = new PathTransition();
-//        pathTransition.setDuration(Duration.millis(4000));
-//        pathTransition.setPath(path);
-//        pathTransition.setNode(rectPath);
-//        pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
-//        pathTransition.setCycleCount(Timeline.INDEFINITE);
-//        pathTransition.setAutoReverse(true);
-//        pathTransition.play();
-
-
-//        FadeTransition fadeTransition =
-//                new FadeTransition(Duration.millis(3000), titleLabel);
-//        fadeTransition.setFromValue(1.0f);
-//        fadeTransition.setToValue(0.3f);
-//        fadeTransition.setCycleCount(2);
-//        fadeTransition.setAutoReverse(true);
-//
-//        TranslateTransition translateTransition =
-//                new TranslateTransition(Duration.millis(2000), titleLabel);
-////        translateTransition.setFromX(1000);
-//        translateTransition.setToX(-100);
-//        translateTransition.setCycleCount(2);
-//        translateTransition.setAutoReverse(true);
-//
-////        RotateTransition rotateTransition =
-////                new RotateTransition(Duration.millis(3000), rectParallel);
-////        rotateTransition.setByAngle(180f);
-////        rotateTransition.setCycleCount(4);
-////        rotateTransition.setAutoReverse(true);
-//
-//        ScaleTransition scaleTransition =
-//                new ScaleTransition(Duration.millis(2000), titleLabel);
-//        scaleTransition.setToX(2f);
-//        scaleTransition.setToY(2f);
-//        scaleTransition.setCycleCount(2);
-//        scaleTransition.setAutoReverse(true);
-//
-//        ParallelTransition parallelTransition = new ParallelTransition();
-//        parallelTransition.getChildren().addAll(
-//                fadeTransition,
-//                translateTransition,
-////                rotateTransition,
-//                scaleTransition
-//        );
-//        parallelTransition.setCycleCount(1);
-//        parallelTransition.setOnFinished(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                titleLabel.setText("after animation");
-//            }
-//        });
-//        parallelTransition.play();
-
         if(index>=endIndex){
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 //            alert.setTitle("Confirmation Dialog");
@@ -253,54 +180,7 @@ public class Controller implements Initializable {
         isFillText = false;
 
 
-//        Rectangle rectSeq = new Rectangle(25,25,50,50);
-//        rectSeq.setArcHeight(15);
-//        rectSeq.setArcWidth(15);
-//        rectSeq.setFill(Color.CRIMSON);
-//        rectSeq.setTranslateX(50);
-//        rectSeq.setTranslateY(50);
-//
-//        titleView.getChildren().add(rectSeq);
-//
-//        FadeTransition fadeTransition =
-//                new FadeTransition(Duration.millis(1000), rectSeq);
-//        fadeTransition.setFromValue(1.0f);
-//        fadeTransition.setToValue(0.3f);
-//        fadeTransition.setCycleCount(1);
-//        fadeTransition.setAutoReverse(true);
-//
-//        TranslateTransition translateTransition =
-//                new TranslateTransition(Duration.millis(2000), rectSeq);
-//        translateTransition.setFromX(50);
-//        translateTransition.setToX(375);
-//        translateTransition.setCycleCount(1);
-//        translateTransition.setAutoReverse(true);
-//
-//        RotateTransition rotateTransition =
-//                new RotateTransition(Duration.millis(2000), rectSeq);
-//        rotateTransition.setByAngle(180f);
-//        rotateTransition.setCycleCount(4);
-//        rotateTransition.setAutoReverse(true);
-//
-//        ScaleTransition scaleTransition =
-//                new ScaleTransition(Duration.millis(2000), rectSeq);
-//        scaleTransition.setFromX(1);
-//        scaleTransition.setFromY(1);
-//        scaleTransition.setToX(2);
-//        scaleTransition.setToY(2);
-//        scaleTransition.setCycleCount(1);
-//        scaleTransition.setAutoReverse(true);
-//
-//        SequentialTransition sequentialTransition = new SequentialTransition();
-//        sequentialTransition.getChildren().addAll(
-//                fadeTransition,
-//                translateTransition,
-//                rotateTransition,
-//                scaleTransition);
-//        sequentialTransition.setCycleCount(Timeline.INDEFINITE);
-//        sequentialTransition.setAutoReverse(true);
-//
-//        sequentialTransition.play();
+
     }
 
 
